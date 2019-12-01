@@ -1,0 +1,13 @@
+#hdmi_safe=1
+disable_splash=1
+
+boot_delay=0
+gpu_mem=16
+
+# hw interfaces
+dtparam=i2c_arm=on
+dtparam=i2c1=on
+dtparam=spi=on
+
+# -- hypersolid initramfs
+initramfs initramfs.img followkernel

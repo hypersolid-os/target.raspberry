@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# configure rapsberry version
+# - "rpi_zero_x86" | Raspberry 1/Zero/CM 32bit
+# - "rpi_3_x86" | Raspberry (3, 3A+, 3B+) 32bit
+# - "rpi_3_x64" | Raspberry (3, 3A+, 3B+) 64bit
+#
+CONF_TARGET_DEVICE="rpi_3_x64"
+
+# official firmware + kernel
+#
+RASPBERRY_KERNEL_VERSION="4.19.75"
+RASPBERRY_FIRMWARE_RELEASE="1.20190925"
+
+# no manual config beyond this line
+# ----------------------------------------------
+
+# target architecture
+CONF_ARCH=
+
+case ${CONF_TARGET_DEVICE} in
+    rpi_zero_x86)
+        CONF_ARCH=armel
+        ;;
+    rpi_3_x86)
+        CONF_ARCH=armhf
+        ;;
+    rpi_3_x64)
+        CONF_ARCH=arm64
+        ;;
+    *)
+        echo "invalid target device $ARG"
+        exit 1
+        ;;
+esac
+
+export CONF_TARGET_DEVICE
+export CONF_ARCH
+export RASPBERRY_KERNEL_VERSION
+export RASPBERRY_FIRMWARE_RELEASE
+
+echo "[raspberry] target architecture $CONF_ARCH on $CONF_TARGET_DEVICE"
+echo "[raspberry] firmware release $RASPBERRY_FIRMWARE_RELEASE with kernel $RASPBERRY_KERNEL_VERSION"
