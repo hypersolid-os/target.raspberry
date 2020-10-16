@@ -7,10 +7,19 @@
 #
 CONF_TARGET_DEVICE="rpi_3_x64"
 
+# use standard img, not cpio wrapped
+CONF_IMAGE_TYPE="img"
+
+# use LZO compression - LZ4 (default) is not supported within the official kernel
+CONF_SQUASHFS_ARGS=(-comp lzo)
+
 # official firmware + kernel
-#
-RASPBERRY_KERNEL_VERSION="4.19.75"
-RASPBERRY_FIRMWARE_RELEASE="1.20190925"
+# kernel type (debian or official)
+RASPBERRY_KERNEL_TYPE="official"
+
+# kernel+firmware releases of the "official" image
+RASPBERRY_KERNEL_VERSION="5.4.51"
+RASPBERRY_FIRMWARE_RELEASE="1.20200902"
 
 # no manual config beyond this line
 # ----------------------------------------------
@@ -38,6 +47,12 @@ export CONF_TARGET_DEVICE
 export CONF_ARCH
 export RASPBERRY_KERNEL_VERSION
 export RASPBERRY_FIRMWARE_RELEASE
+export RASPBERRY_KERNEL_TYPE
 
+# info
 echo "[raspberry] target architecture $CONF_ARCH on $CONF_TARGET_DEVICE"
-echo "[raspberry] firmware release $RASPBERRY_FIRMWARE_RELEASE with kernel $RASPBERRY_KERNEL_VERSION"
+
+# using official kernel ?
+if [ "$RASPBERRY_KERNEL_TYPE" = "official" ]; then
+    echo "[raspberry] official firmware release $RASPBERRY_FIRMWARE_RELEASE with kernel $RASPBERRY_KERNEL_VERSION"
+fi

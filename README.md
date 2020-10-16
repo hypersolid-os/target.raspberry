@@ -4,7 +4,7 @@ RaspberryPI embedded image
 Features
 ------------------------------------------
 
-* Official [Raspberry PI Kernel](https://github.com/raspberrypi/firmware)
+* Official [Raspberry PI Kernel](https://github.com/raspberrypi/firmware) OR [Debian ARM64 Kernel](https://packages.debian.org/bullseye/linux-image-arm64)
 * Official firmware (non-free binary blobs) (wifi, startup code)
 * Standard Debian userpsace (armel, armhf or arm64)
 
@@ -43,6 +43,13 @@ CONF_TARGET_DEVICE="rpi_3_x64"
 
 Additional informations can be found within the [Debian Wiki](https://wiki.debian.org/RaspberryPi)
 
+SD Card / File System layout
+----------------------------
+
+* Primary Partition 1: `128MB` - bootloader files, dtb, kernel, initramfs (bootable flag!)
+* Logical Partition 5: `1GB`  - system.img
+* Logical Partition 6: `512MB` - persistent config
+* Logical Partition 7+: `X` - persistent data / user data
 
 License
 ----------------------------
