@@ -18,8 +18,8 @@ CONF_SQUASHFS_ARGS=(-comp lzo)
 RASPBERRY_KERNEL_TYPE="official"
 
 # kernel+firmware releases of the "official" image
-RASPBERRY_KERNEL_VERSION="5.4.51"
-RASPBERRY_FIRMWARE_RELEASE="1.20200902"
+RASPBERRY_KERNEL_VERSION="5.10.103"
+RASPBERRY_FIRMWARE_RELEASE="20220308"
 
 # no manual config beyond this line
 # ----------------------------------------------

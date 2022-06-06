@@ -1,0 +1,5 @@
+# tmp partition
+# /dev/mmcblk0p7       /tmp                ext4    defaults,noatime,nosuid,nodev  0  2
+
+# data partition
+# /dev/mmcblk0p8       /srv                ext4    defaults,noatime      0       2
